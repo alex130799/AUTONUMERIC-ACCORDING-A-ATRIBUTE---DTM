@@ -14,4 +14,16 @@ The output of Mineable Shape Optimizer(MSO) give us stopes with a STOPENUM atrib
  
  # INSIGHT OF OUTPUT OF MSO
  
- ![image](https://user-images.githubusercontent.com/67855447/120092972-9af4ba80-c0dc-11eb-9aa0-1ff51bde8bf3.png)
+ Mineable Shape Optimizer allow join many block into a stopes that accomplish the cut off. Theses Stopes have measures according to given setup previously.
+ 
+![image](https://user-images.githubusercontent.com/67855447/120093041-19515c80-c0dd-11eb-8228-c89401226663.png)
+#####  NOTE: THOSES NUMBERS IDENTIFY THE STOPENUM OF EACH STOPES
+
+ # ISSUE OF STOPENUM IN A INTERESTING ZONE
+
+To report reserve, mining engineer needs to give a code each stope accomplish a numeric order of interesting zone. The STOPENUM CODE doesn't this requirement because of STOPENUM identify all stopes and not the interesting zone.
+
+![image](https://user-images.githubusercontent.com/67855447/120093207-4ce0b680-c0de-11eb-8160-cd511768c9f5.png)
+
+
+
