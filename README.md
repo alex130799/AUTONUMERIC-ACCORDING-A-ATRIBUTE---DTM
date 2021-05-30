@@ -23,7 +23,15 @@ The output of Mineable Shape Optimizer(MSO) give us stopes with a STOPENUM atrib
 
 To report reserve, mining engineer needs to give a code each stope accomplish a numeric order of interesting zone. The STOPENUM CODE doesn't this requirement because of STOPENUM identify all stopes and not the interesting zone.
 
-![image](https://user-images.githubusercontent.com/67855447/120093207-4ce0b680-c0de-11eb-8160-cd511768c9f5.png)
+![image](https://user-images.githubusercontent.com/67855447/120093431-dc3a9980-c0df-11eb-99b0-6ac9d2f8463f.png)
+
+# SCRIPT VIEW IN DATAMINE SOFTWARE
+
+
+
+
+
+
 
 
 
