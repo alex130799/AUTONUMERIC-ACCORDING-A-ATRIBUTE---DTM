@@ -1,0 +1,239 @@
+<html>    
+	<head>
+        <style type="text/css">
+            body {
+                font-family: Tahoma;
+                font-size: small;
+            }
+            table {
+                border: 1px solid #CCCCCC;
+            }
+            input{
+                border: 1px solid #CCCCCC;
+            }
+            input[type="text"]{
+                width: 150px;
+            }
+            input[type="text"]:focus{
+                border: 1px solid #0098C3;
+            }
+            input[type="button"]:hover{
+                background: #DAD9D8;
+            }
+            select{
+                border: 1px solid #CCCCCC;
+                width: 84px;
+            }
+            .title{
+                font-size: small;
+                font-weight: bold;
+                line-height: 250%;
+                background: #0098C3;
+                color: white;
+            }
+            .tbBrowser{
+                background: white;
+                color: black;
+            }
+            .btnExec{
+                cursor: pointer;
+                width: 110px;
+                height: 25px;
+                font-weight: bold;
+            }
+            .btnExec2{
+                cursor: pointer;
+                width: 110px;
+                height: 22px;
+                font-weight: bold;
+            }
+            .img-responsive {
+                width:20px !important;
+                height:20px !important;
+            }
+            *{
+                margin: 0;
+                padding: 0;
+                }
+                header{
+                font-family: Helvetica;
+                width: 480px;
+                margin: 0 auto;
+                }
+                ul{
+                list-style: none;
+                }
+                #menu li>a{
+                background-color: #0098C3;
+                color: white;
+                font-weight: bold;
+                padding: 10px;
+                display: block;
+                text-decoration: none;
+                min-width: 100px;
+                }
+                #menu li>a:hover{
+                color: #000;
+                background-color: #eaeaea;
+                }
+                #menu>li{
+                float: left;
+                text-align:center
+                }
+                #menu>li>ul{
+                display: none;
+                }
+                #menu>li:hover>ul {
+                display:block;
+                }
+            </style>
+		<script type="text/javascript"> //CON ESTE SCRIPT NO ES NECESARIO GUARDAR EL ARCHIVO DE PUNTOS
+			var oDmApp= null;
+			var oScript = null;
+            var wireframeTr
+            var wireframePt
+			function AutoConnect(){
+				oScript = new ActiveXObject("StudioCommon.ScriptHelper");
+      			oScript.initialize(window);
+      			oDmApp = oScript.getApplication();
+                oDmApp.ControlBars.Command.Visible = true
+                var myObject, newfolder;
+                myObject = new ActiveXObject("Scripting.FileSystemObject")
+                myObject.CopyFile(oDmApp.ActiveProject.Folder+"\\UGDatabase\\Scenario1\\Settings\\DesignFiles.xml",oDmApp.ActiveProject.Folder+"\\UGDatabase\\Scenario1\\Settings\\DesignFiles.txt")
+                afile = myObject.OpenTextFile(oDmApp.ActiveProject.Folder+"\\UGDatabase\\Scenario1\\Settings\\DesignFiles.txt", 1, true);
+                var linea
+                var nombrein
+                while (true){
+                    linea=afile.ReadLine()
+                    linea=linea.replace(/^\s+|\s+$/g, '')
+                    len = linea.length
+                    if (linea.slice(0,6)=="<Name>"){
+                        nombrein=linea.slice(6,len-7)
+                        break
+
+                    }
+                }
+                afile.Close()
+                myObject.DeleteFile(oDmApp.ActiveProject.Folder+"\\UGDatabase\\Scenario1\\Settings\\DesignFiles.txt");
+                wireframeTr = nombrein
+                wireframePt = nombrein.slice(0,nombrein.length-2)+"pt"
+
+			}
+
+			function extra(){
+                var out_ = tbStr_out2.value
+                var in_=   tbSOL1.value
+                var nam =  tbStr_out_n.value
+                var dir =  tbStr_out2_d.value
+                oDmApp.ParseCommand("mgsort &IN="+in_+" &OUT=__temp *KEY1="+dir+" @ORDER=1 @KEYSFRST=1 @ROWORDER=1 @KEYTOL=0.00001");
+                oDmApp.ParseCommand("extra &IN=__temp &OUT="+out_+" @APPROX=0 @PRINT=0"+
+                	"'if (first()==0)'"+
+                    "'"+nam+" = 1'"+
+                    "'end'"+
+                    "'if ("+dir+" == prev("+dir+"))'"+
+	 				"'if (STOPENUM == prev(STOPENUM))'"+
+                    "'"+nam+" = prev("+nam+")'"+
+	 				"'end'"+
+                    "'if (STOPENUM != prev(STOPENUM))'"+
+                    "'"+nam+" = prev("+nam+")+1 '"+
+					"'end'"+
+	 				"'end'"+
+                    "'if ("+dir+" != prev("+dir+"))'"+
+                    "'"+nam+" = 1'"+
+                    "'end'"+
+	 				"'GO'");
+                alert("Proceso Terminado")   
+
+            }
+
+            function browserDm(tbID){
+                var browser = oDmApp.ActiveProject.Browser;
+                browser.TypeFilter = oScript.DmFileType.dmString;
+                browser.Show(false);
+                var selectedFile = browser.FileName;
+                var element = document.getElementById(tbID);
+                element.value = selectedFile;
+                
+            }
+		</script>
+	</head>
+    <body onload="AutoConnect();">
+        <table cellpadding="0" cellspacing="0" style="width: 420px;" align="center">
+
+            <tr><td colspan="2" style="height: 15px"></td></tr>
+            <tr>
+
+            <tr><td colspan="2" style="height: 10px"></td></tr>
+            <tr><td colspan="2" style="height: 10px"></td></tr>
+            <tr>
+                <td colspan="2" class="title" style="text-align: center">
+                    <b>SCRIPT ORDENAR - PAS MOROCOCHA</b>
+                </td>
+            </tr>
+            <tr><td colspan="2" style="height: 15px"></td></tr>
+            <tr>
+                <td colspan="2" style="color: #0098C3">&nbsp;&nbsp;&nbsp;<b>Entrada:</b></td>
+            </tr>
+            <tr><td colspan="2" style="height: 2px"></td></tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;wireframes tr:</td>
+                <td><input type="Text" disabled="True" id="tbSOL1">
+                    <input type="Button" value="..." onclick="browserDm('tbSOL1')"></td>
+            </tr>
+                <tr><td colspan="2" style="height: 15px"></td></tr> 
+            <tr>
+                <td colspan="2" style="color: #0098C3">&nbsp;&nbsp;&nbsp;<b>Columnas:</b></td>
+            </tr>
+
+            <tr > 
+                <td>&nbsp;&nbsp;&nbsp;Columna nueva:</td>
+                <td><input type="Text" id="tbStr_out_n"  value="nueva_columna"></td>
+            </tr>
+
+            <tr > 
+                <td>&nbsp;&nbsp;&nbsp;Columna direccion:</td>
+                <td><input type="Text" id="tbStr_out2_d"  value="columna_direccion"></td>
+            </tr>
+
+
+
+            <tr><td colspan="2" style="height: 15px"></td></tr> 
+            <tr>
+                <td colspan="2" style="color: #0098C3">&nbsp;&nbsp;&nbsp;<b>Salida:</b></td>
+            </tr>
+        
+            <tr > 
+                <td>&nbsp;&nbsp;&nbsp;Nombre archivo tr:</td>
+                <td><input type="Text" id="tbStr_out2"  value="out_"></td>
+            </tr>
+
+            
+            
+            <tr><td colspan="2" style="height: 15px"></td></tr>    
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <input type="Button" class="btnExec" value="EJECUTAR" onclick="extra()">
+                </td>
+            </tr>
+			<tr><td colspan="2" style="height: 15px"></td></tr> 
+            <tr><td colspan="2" class = "title" style="text-align: center">
+                <b>Autor: Alex Falcon Ascona</b></td>
+
+            <tr><td colspan="2" style="height: 15px"></td></tr>
+            <td><img src="C:/Program Files/Datamine/StudioUG//html/images/CAE_Mining_Full_Color.gif" id="logo" alt="CAE Mining" width="100" height="39" />
+            </td>
+
+            <div class="card mt-3">
+                <div class="card-header">Informacion del Script</div>
+                <div class="card-body">
+
+                    ............................................................................
+                    Este script le da un orden a un nuevo atributo de acuerdo a un atributo ya ordenado.
+                    Este trabajo es realizado debido a la necesidad de un ingeniero.
+
+                </div>
+            </div>
+
+        </table>
+	</body>
+</html>
