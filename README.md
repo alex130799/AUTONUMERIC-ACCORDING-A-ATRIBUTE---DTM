@@ -16,19 +16,20 @@ The output of Mineable Shape Optimizer(MSO) give us stopes with a STOPENUM atrib
  
  Mineable Shape Optimizer allow join many block into a stopes that accomplish the cut off. Theses Stopes have measures according to given setup previously.
  
-![image](https://user-images.githubusercontent.com/67855447/120093041-19515c80-c0dd-11eb-8228-c89401226663.png)
+![image](https://user-images.githubusercontent.com/67855447/120093694-7ea74c80-c0e1-11eb-928c-c2901fbfce98.png)
 #####  NOTE: THOSES NUMBERS IDENTIFY THE STOPENUM OF EACH STOPES
 
  # ISSUE OF STOPENUM IN A INTERESTING ZONE
 
 To report reserve, mining engineer needs to give a code each stope accomplish a numeric order of interesting zone. The STOPENUM CODE doesn't this requirement because of STOPENUM identify all stopes and not the interesting zone.
 
-![image](https://user-images.githubusercontent.com/67855447/120093431-dc3a9980-c0df-11eb-99b0-6ac9d2f8463f.png)
+![image](https://user-images.githubusercontent.com/67855447/120093725-a8607380-c0e1-11eb-8d25-e267093882c3.png)
 
 # SCRIPT VIEW IN DATAMINE SOFTWARE
 
+According the style we code in our code file(SCRIPT ORDEN), give a interface where we setup our input and names of columns we want to add and the column we reference to autonumeric.
 
-
+![image](https://user-images.githubusercontent.com/67855447/120093643-3e47ce80-c0e1-11eb-9c6e-89b93d0135cd.png)
 
 
 
