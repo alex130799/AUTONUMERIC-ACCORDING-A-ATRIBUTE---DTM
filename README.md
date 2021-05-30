@@ -31,6 +31,16 @@ According the style we code in our code file(SCRIPT ORDEN), give a interface whe
 
 ![image](https://user-images.githubusercontent.com/67855447/120093643-3e47ce80-c0e1-11eb-9c6e-89b93d0135cd.png)
 
+# COMPARATION BETWEEN BEFORE AND AFTER STOPE IDENTIFICATION
+
+to report or give other analysis or data, is needed to have a order in stopes. As we see with this code we can give a autonumeric order to many stopes. 
+There are cases of thousands stopes. 
+This code will help you.
+
+![image](https://user-images.githubusercontent.com/67855447/120093891-c9759400-c0e2-11eb-8d72-139059a6fee1.png)
+
+
+
 
 
 
