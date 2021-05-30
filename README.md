@@ -4,4 +4,14 @@ The output of Mineable Shape Optimizer(MSO) give us stopes with a STOPENUM atrib
 
 # OVERVIEW
 
-. 
+ . Insight of output of MSO.
+ 
+ . Issue of STOPENUM in a interesting zone.
+ 
+ . Script View in Datamine Software
+ 
+ . Comparation between before and after stope identification.
+ 
+ # INSIGHT OF OUTPUT OF MSO
+ 
+ ![image](https://user-images.githubusercontent.com/67855447/120092972-9af4ba80-c0dc-11eb-9aa0-1ff51bde8bf3.png)
